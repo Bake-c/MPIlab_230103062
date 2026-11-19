@@ -1,0 +1,1823 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-19T07:50:36.730815+00:00",
+  "verification_passed": true,
+  "full_workload": true,
+  "system_context": {
+    "git_username": "Bake-c",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i5-12450H",
+    "cpu_signature": "AMD64::12th Gen Intel(R) Core(TM) i5-12450H::12",
+    "logical_cores": 12,
+    "allowed_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_cpus": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "selected_physical_cores": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "distinct_selected_physical_cores": 4,
+    "affinity_backend": "windows_group_affinity",
+    "windows_processor_group": 0,
+    "cache_line_size": 64,
+    "cache_line_size_source": "64_byte_fallback",
+    "instance_seed": 10618267950495303938,
+    "seed_input": "Bake-c::AMD64::12th Gen Intel(R) Core(TM) i5-12450H::12",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python_version": "3.11.5",
+    "numpy_version": "2.4.6",
+    "numba_version": "0.68.0",
+    "llvmlite_version": "0.50.0",
+    "notes": [
+      "64-byte line size assumed because sysfs/sysctl is unavailable."
+    ]
+  },
+  "num_threads": 4,
+  "iterations_per_thread": 60000000,
+  "repeats": 3,
+  "thread_seeds": [
+    238067002389844514,
+    4029282311021019572,
+    6456824858634103871,
+    16675593967040256208
+  ],
+  "execution_orders": [
+    [
+      "private",
+      "stride_16",
+      "stride_8",
+      "stride_1",
+      "stride_4"
+    ],
+    [
+      "private",
+      "stride_1",
+      "stride_4",
+      "stride_8",
+      "stride_16"
+    ],
+    [
+      "stride_16",
+      "private",
+      "stride_8",
+      "stride_1",
+      "stride_4"
+    ]
+  ],
+  "source_sha256": "0e281bbafe470bff1d90032ecbba4d151c8df104bf45d5ca081dc399b206547b",
+  "counter_recurrence": "state=(state*6364136223846793005+1442695040888963407) mod 2^64; counter+=state mod 2^64",
+  "all_workers_pinned": true,
+  "audit": {
+    "worker_strided_accumulate": {
+      "passed": true,
+      "nopython_signatures": [
+        "(Array(uint64, 1, 'C', False, aligned=True), int64, int64, uint64) -> none"
+      ],
+      "native_function": "_ZN8__main__25worker_strided_accumulateB2v1B40c8tJTIeFIjxB2IKSgI4CrvQClQZ6FcpCShpgEU0AE5ArrayIyLi1E1C7mutable7alignedExxy",
+      "native_body_has_no_python_calls": true,
+      "volatile_load_examples": [
+        "%counter_read.prol = load volatile i64, ptr %sunkaddr2, align 8",
+        "%counter_read = load volatile i64, ptr %sunkaddr4, align 8"
+      ],
+      "volatile_store_examples": [
+        "store volatile i64 %.159.prol, ptr %sunkaddr2, align 8",
+        "store volatile i64 %.159, ptr %sunkaddr4, align 8"
+      ],
+      "volatile_loop_blocks": [
+        "B66.prol",
+        "B66"
+      ],
+      "ordinary_i64_stores": [],
+      "llvm_file": "worker_strided_accumulate.ll",
+      "llvm_sha256": "69e9f35f74c7cb89611ee93a00eea06e4b16f85e9da7bb18c8e13cabcb5d8e5e"
+    },
+    "worker_private_accumulate": {
+      "passed": true,
+      "nopython_signatures": [
+        "(Array(uint64, 1, 'C', False, aligned=True), int64, int64, uint64) -> none"
+      ],
+      "native_function": "_ZN8__main__25worker_private_accumulateB2v2B40c8tJTIeFIjxB2IKSgI4CrvQClQZ6FcpCShpgEU0AE5ArrayIyLi1E1C7mutable7alignedExxy",
+      "native_body_has_no_python_calls": true,
+      "volatile_load_examples": [],
+      "volatile_store_examples": [],
+      "volatile_loop_blocks": [],
+      "ordinary_i64_stores": [
+        "store i64 %accumulator.2.0.lcssa, ptr %.194, align 8"
+      ],
+      "llvm_file": "worker_private_accumulate.ll",
+      "llvm_sha256": "5393c362a1f805212c5d7584d92924812af358f5ec98906e95f22db8ddbd10a7"
+    },
+    "all_layouts_bit_exact": true,
+    "passed": true
+  },
+  "results": {
+    "stride_1": {
+      "runs": [
+        {
+          "stride": 1,
+          "private": false,
+          "elapsed_ns": 196451400,
+          "ns_per_update": 0.8185475,
+          "wall_ns_per_thread_iteration": 3.27419,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841645896320,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841645896320,
+            2841645896328,
+            2841645896336,
+            2841645896344
+          ],
+          "cache_line_indices": [
+            44400717130,
+            44400717130,
+            44400717130,
+            44400717130
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308199882638500,
+              "end_ns": 1308200078929400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 1,
+              "enter_ns": 1308199882602700,
+              "end_ns": 1308200049873000,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 2,
+              "enter_ns": 1308199882663100,
+              "end_ns": 1308200017840600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 3,
+              "enter_ns": 1308199882490500,
+              "end_ns": 1308200019197000,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 1,
+          "private": false,
+          "elapsed_ns": 133836500,
+          "ns_per_update": 0.5576520833333334,
+          "wall_ns_per_thread_iteration": 2.2306083333333335,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841645896320,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841645896320,
+            2841645896328,
+            2841645896336,
+            2841645896344
+          ],
+          "cache_line_indices": [
+            44400717130,
+            44400717130,
+            44400717130,
+            44400717130
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200268686300,
+              "end_ns": 1308200386817200,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 1,
+              "enter_ns": 1308200268886300,
+              "end_ns": 1308200402479300,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 2,
+              "enter_ns": 1308200268712900,
+              "end_ns": 1308200384404700,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 3,
+              "enter_ns": 1308200268655700,
+              "end_ns": 1308200389602600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 1,
+          "private": false,
+          "elapsed_ns": 125192800,
+          "ns_per_update": 0.5216366666666666,
+          "wall_ns_per_thread_iteration": 2.0865466666666665,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841645896320,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841645896320,
+            2841645896328,
+            2841645896336,
+            2841645896344
+          ],
+          "cache_line_indices": [
+            44400717130,
+            44400717130,
+            44400717130,
+            44400717130
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308201072165500,
+              "end_ns": 1308201191230400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 1,
+              "enter_ns": 1308201072187600,
+              "end_ns": 1308201196063300,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 2,
+              "enter_ns": 1308201083039400,
+              "end_ns": 1308201197298600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 3,
+              "enter_ns": 1308201072118100,
+              "end_ns": 1308201186328600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        }
+      ],
+      "median_elapsed_ns": 133836500,
+      "ns_per_update": 0.5576520833333334,
+      "representative_run": {
+        "stride": 1,
+        "private": false,
+        "elapsed_ns": 133836500,
+        "ns_per_update": 0.5576520833333334,
+        "wall_ns_per_thread_iteration": 2.2306083333333335,
+        "context_switches": null,
+        "context_switch_scope": "unavailable_on_windows",
+        "buffer_address": 2841645896320,
+        "alignment_bytes": 128,
+        "slot_addresses": [
+          2841645896320,
+          2841645896328,
+          2841645896336,
+          2841645896344
+        ],
+        "cache_line_indices": [
+          44400717130,
+          44400717130,
+          44400717130,
+          44400717130
+        ],
+        "expected_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "actual_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "parity_passed": true,
+        "worker_records": [
+          {
+            "tid": 0,
+            "slot": 0,
+            "enter_ns": 1308200268686300,
+            "end_ns": 1308200386817200,
+            "affinity": {
+              "pinned": true,
+              "cpu": 0,
+              "group": 0
+            }
+          },
+          {
+            "tid": 1,
+            "slot": 1,
+            "enter_ns": 1308200268886300,
+            "end_ns": 1308200402479300,
+            "affinity": {
+              "pinned": true,
+              "cpu": 2,
+              "group": 0
+            }
+          },
+          {
+            "tid": 2,
+            "slot": 2,
+            "enter_ns": 1308200268712900,
+            "end_ns": 1308200384404700,
+            "affinity": {
+              "pinned": true,
+              "cpu": 4,
+              "group": 0
+            }
+          },
+          {
+            "tid": 3,
+            "slot": 3,
+            "enter_ns": 1308200268655700,
+            "end_ns": 1308200389602600,
+            "affinity": {
+              "pinned": true,
+              "cpu": 6,
+              "group": 0
+            }
+          }
+        ],
+        "all_workers_overlap": true
+      }
+    },
+    "stride_4": {
+      "runs": [
+        {
+          "stride": 4,
+          "private": false,
+          "elapsed_ns": 122855200,
+          "ns_per_update": 0.5118966666666667,
+          "wall_ns_per_thread_iteration": 2.0475866666666667,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841646141952,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841646141952,
+            2841646141984,
+            2841646142016,
+            2841646142048
+          ],
+          "cache_line_indices": [
+            44400720968,
+            44400720968,
+            44400720969,
+            44400720969
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200080340300,
+              "end_ns": 1308200197752800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 4,
+              "enter_ns": 1308200080397500,
+              "end_ns": 1308200203184500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 8,
+              "enter_ns": 1308200080367200,
+              "end_ns": 1308200196411800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 12,
+              "enter_ns": 1308200080505900,
+              "end_ns": 1308200195165500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 4,
+          "private": false,
+          "elapsed_ns": 120429700,
+          "ns_per_update": 0.5017904166666667,
+          "wall_ns_per_thread_iteration": 2.0071616666666667,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841646141952,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841646141952,
+            2841646141984,
+            2841646142016,
+            2841646142048
+          ],
+          "cache_line_indices": [
+            44400720968,
+            44400720968,
+            44400720969,
+            44400720969
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200404080400,
+              "end_ns": 1308200524469800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 4,
+              "enter_ns": 1308200404055000,
+              "end_ns": 1308200522852400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 8,
+              "enter_ns": 1308200404133000,
+              "end_ns": 1308200517653100,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 12,
+              "enter_ns": 1308200404110000,
+              "end_ns": 1308200518524600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 4,
+          "private": false,
+          "elapsed_ns": 140438100,
+          "ns_per_update": 0.58515875,
+          "wall_ns_per_thread_iteration": 2.340635,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841646141952,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841646141952,
+            2841646141984,
+            2841646142016,
+            2841646142048
+          ],
+          "cache_line_indices": [
+            44400720968,
+            44400720968,
+            44400720969,
+            44400720969
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308201199108000,
+              "end_ns": 1308201339475700,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 4,
+              "enter_ns": 1308201199248100,
+              "end_ns": 1308201320447500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 8,
+              "enter_ns": 1308201199051900,
+              "end_ns": 1308201323535400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 12,
+              "enter_ns": 1308201199129400,
+              "end_ns": 1308201311072100,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        }
+      ],
+      "median_elapsed_ns": 122855200,
+      "ns_per_update": 0.5118966666666667,
+      "representative_run": {
+        "stride": 4,
+        "private": false,
+        "elapsed_ns": 122855200,
+        "ns_per_update": 0.5118966666666667,
+        "wall_ns_per_thread_iteration": 2.0475866666666667,
+        "context_switches": null,
+        "context_switch_scope": "unavailable_on_windows",
+        "buffer_address": 2841646141952,
+        "alignment_bytes": 128,
+        "slot_addresses": [
+          2841646141952,
+          2841646141984,
+          2841646142016,
+          2841646142048
+        ],
+        "cache_line_indices": [
+          44400720968,
+          44400720968,
+          44400720969,
+          44400720969
+        ],
+        "expected_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "actual_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "parity_passed": true,
+        "worker_records": [
+          {
+            "tid": 0,
+            "slot": 0,
+            "enter_ns": 1308200080340300,
+            "end_ns": 1308200197752800,
+            "affinity": {
+              "pinned": true,
+              "cpu": 0,
+              "group": 0
+            }
+          },
+          {
+            "tid": 1,
+            "slot": 4,
+            "enter_ns": 1308200080397500,
+            "end_ns": 1308200203184500,
+            "affinity": {
+              "pinned": true,
+              "cpu": 2,
+              "group": 0
+            }
+          },
+          {
+            "tid": 2,
+            "slot": 8,
+            "enter_ns": 1308200080367200,
+            "end_ns": 1308200196411800,
+            "affinity": {
+              "pinned": true,
+              "cpu": 4,
+              "group": 0
+            }
+          },
+          {
+            "tid": 3,
+            "slot": 12,
+            "enter_ns": 1308200080505900,
+            "end_ns": 1308200195165500,
+            "affinity": {
+              "pinned": true,
+              "cpu": 6,
+              "group": 0
+            }
+          }
+        ],
+        "all_workers_overlap": true
+      }
+    },
+    "stride_8": {
+      "runs": [
+        {
+          "stride": 8,
+          "private": false,
+          "elapsed_ns": 258259800,
+          "ns_per_update": 1.0760825,
+          "wall_ns_per_thread_iteration": 4.30433,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841217071872,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841217071872,
+            2841217071936,
+            2841217072000,
+            2841217072064
+          ],
+          "cache_line_indices": [
+            44394016748,
+            44394016749,
+            44394016750,
+            44394016751
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308199617303700,
+              "end_ns": 1308199875524300,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 8,
+              "enter_ns": 1308199617323000,
+              "end_ns": 1308199791121800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 16,
+              "enter_ns": 1308199617342100,
+              "end_ns": 1308199719401400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 24,
+              "enter_ns": 1308199617278800,
+              "end_ns": 1308199714493700,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 8,
+          "private": false,
+          "elapsed_ns": 98880100,
+          "ns_per_update": 0.41200041666666665,
+          "wall_ns_per_thread_iteration": 1.6480016666666666,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841217071872,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841217071872,
+            2841217071936,
+            2841217072000,
+            2841217072064
+          ],
+          "cache_line_indices": [
+            44394016748,
+            44394016749,
+            44394016750,
+            44394016751
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200526500600,
+              "end_ns": 1308200622382000,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 8,
+              "enter_ns": 1308200526519800,
+              "end_ns": 1308200625110300,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 16,
+              "enter_ns": 1308200526474400,
+              "end_ns": 1308200625341700,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 24,
+              "enter_ns": 1308200526551300,
+              "end_ns": 1308200619835200,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 8,
+          "private": false,
+          "elapsed_ns": 120229800,
+          "ns_per_update": 0.5009575,
+          "wall_ns_per_thread_iteration": 2.00383,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841217071872,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841217071872,
+            2841217071936,
+            2841217072000,
+            2841217072064
+          ],
+          "cache_line_indices": [
+            44394016748,
+            44394016749,
+            44394016750,
+            44394016751
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200944599300,
+              "end_ns": 1308201064748400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 8,
+              "enter_ns": 1308200944805500,
+              "end_ns": 1308201043296400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 16,
+              "enter_ns": 1308200952332400,
+              "end_ns": 1308201045230600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 24,
+              "enter_ns": 1308200944530100,
+              "end_ns": 1308201036376900,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        }
+      ],
+      "median_elapsed_ns": 120229800,
+      "ns_per_update": 0.5009575,
+      "representative_run": {
+        "stride": 8,
+        "private": false,
+        "elapsed_ns": 120229800,
+        "ns_per_update": 0.5009575,
+        "wall_ns_per_thread_iteration": 2.00383,
+        "context_switches": null,
+        "context_switch_scope": "unavailable_on_windows",
+        "buffer_address": 2841217071872,
+        "alignment_bytes": 128,
+        "slot_addresses": [
+          2841217071872,
+          2841217071936,
+          2841217072000,
+          2841217072064
+        ],
+        "cache_line_indices": [
+          44394016748,
+          44394016749,
+          44394016750,
+          44394016751
+        ],
+        "expected_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "actual_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "parity_passed": true,
+        "worker_records": [
+          {
+            "tid": 0,
+            "slot": 0,
+            "enter_ns": 1308200944599300,
+            "end_ns": 1308201064748400,
+            "affinity": {
+              "pinned": true,
+              "cpu": 0,
+              "group": 0
+            }
+          },
+          {
+            "tid": 1,
+            "slot": 8,
+            "enter_ns": 1308200944805500,
+            "end_ns": 1308201043296400,
+            "affinity": {
+              "pinned": true,
+              "cpu": 2,
+              "group": 0
+            }
+          },
+          {
+            "tid": 2,
+            "slot": 16,
+            "enter_ns": 1308200952332400,
+            "end_ns": 1308201045230600,
+            "affinity": {
+              "pinned": true,
+              "cpu": 4,
+              "group": 0
+            }
+          },
+          {
+            "tid": 3,
+            "slot": 24,
+            "enter_ns": 1308200944530100,
+            "end_ns": 1308201036376900,
+            "affinity": {
+              "pinned": true,
+              "cpu": 6,
+              "group": 0
+            }
+          }
+        ],
+        "all_workers_overlap": true
+      }
+    },
+    "stride_16": {
+      "runs": [
+        {
+          "stride": 16,
+          "private": false,
+          "elapsed_ns": 96465500,
+          "ns_per_update": 0.40193958333333335,
+          "wall_ns_per_thread_iteration": 1.6077583333333334,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841647049600,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841647049600,
+            2841647049728,
+            2841647049856,
+            2841647049984
+          ],
+          "cache_line_indices": [
+            44400735150,
+            44400735152,
+            44400735154,
+            44400735156
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308199519147300,
+              "end_ns": 1308199614550800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 16,
+              "enter_ns": 1308199519244500,
+              "end_ns": 1308199614597300,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 32,
+              "enter_ns": 1308199519126600,
+              "end_ns": 1308199615542300,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 48,
+              "enter_ns": 1308199519091500,
+              "end_ns": 1308199610491800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 16,
+          "private": false,
+          "elapsed_ns": 103418700,
+          "ns_per_update": 0.43091125,
+          "wall_ns_per_thread_iteration": 1.723645,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841647049600,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841647049600,
+            2841647049728,
+            2841647049856,
+            2841647049984
+          ],
+          "cache_line_indices": [
+            44400735150,
+            44400735152,
+            44400735154,
+            44400735156
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200629116100,
+              "end_ns": 1308200732479500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 16,
+              "enter_ns": 1308200629076600,
+              "end_ns": 1308200730711400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 32,
+              "enter_ns": 1308200629147900,
+              "end_ns": 1308200724427900,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 48,
+              "enter_ns": 1308200636948700,
+              "end_ns": 1308200731499000,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 16,
+          "private": false,
+          "elapsed_ns": 104770200,
+          "ns_per_update": 0.4365425,
+          "wall_ns_per_thread_iteration": 1.74617,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841647049600,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841647049600,
+            2841647049728,
+            2841647049856,
+            2841647049984
+          ],
+          "cache_line_indices": [
+            44400735150,
+            44400735152,
+            44400735154,
+            44400735156
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200741146700,
+              "end_ns": 1308200838404600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 16,
+              "enter_ns": 1308200741364500,
+              "end_ns": 1308200845853800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 32,
+              "enter_ns": 1308200741099800,
+              "end_ns": 1308200834621900,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 48,
+              "enter_ns": 1308200741248000,
+              "end_ns": 1308200841801800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        }
+      ],
+      "median_elapsed_ns": 103418700,
+      "ns_per_update": 0.43091125,
+      "representative_run": {
+        "stride": 16,
+        "private": false,
+        "elapsed_ns": 103418700,
+        "ns_per_update": 0.43091125,
+        "wall_ns_per_thread_iteration": 1.723645,
+        "context_switches": null,
+        "context_switch_scope": "unavailable_on_windows",
+        "buffer_address": 2841647049600,
+        "alignment_bytes": 128,
+        "slot_addresses": [
+          2841647049600,
+          2841647049728,
+          2841647049856,
+          2841647049984
+        ],
+        "cache_line_indices": [
+          44400735150,
+          44400735152,
+          44400735154,
+          44400735156
+        ],
+        "expected_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "actual_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "parity_passed": true,
+        "worker_records": [
+          {
+            "tid": 0,
+            "slot": 0,
+            "enter_ns": 1308200629116100,
+            "end_ns": 1308200732479500,
+            "affinity": {
+              "pinned": true,
+              "cpu": 0,
+              "group": 0
+            }
+          },
+          {
+            "tid": 1,
+            "slot": 16,
+            "enter_ns": 1308200629076600,
+            "end_ns": 1308200730711400,
+            "affinity": {
+              "pinned": true,
+              "cpu": 2,
+              "group": 0
+            }
+          },
+          {
+            "tid": 2,
+            "slot": 32,
+            "enter_ns": 1308200629147900,
+            "end_ns": 1308200724427900,
+            "affinity": {
+              "pinned": true,
+              "cpu": 4,
+              "group": 0
+            }
+          },
+          {
+            "tid": 3,
+            "slot": 48,
+            "enter_ns": 1308200636948700,
+            "end_ns": 1308200731499000,
+            "affinity": {
+              "pinned": true,
+              "cpu": 6,
+              "group": 0
+            }
+          }
+        ],
+        "all_workers_overlap": true
+      }
+    },
+    "private": {
+      "runs": [
+        {
+          "stride": 8,
+          "private": true,
+          "elapsed_ns": 61488400,
+          "ns_per_update": 0.25620166666666666,
+          "wall_ns_per_thread_iteration": 1.0248066666666666,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841217071872,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841217071872,
+            2841217071936,
+            2841217072000,
+            2841217072064
+          ],
+          "cache_line_indices": [
+            44394016748,
+            44394016749,
+            44394016750,
+            44394016751
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308199456182000,
+              "end_ns": 1308199517571600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 8,
+              "enter_ns": 1308199456118600,
+              "end_ns": 1308199516692600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 16,
+              "enter_ns": 1308199456140800,
+              "end_ns": 1308199515436000,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 24,
+              "enter_ns": 1308199456093800,
+              "end_ns": 1308199515087500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 8,
+          "private": true,
+          "elapsed_ns": 62407800,
+          "ns_per_update": 0.2600325,
+          "wall_ns_per_thread_iteration": 1.04013,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841217071872,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841217071872,
+            2841217071936,
+            2841217072000,
+            2841217072064
+          ],
+          "cache_line_indices": [
+            44394016748,
+            44394016749,
+            44394016750,
+            44394016751
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200205076600,
+              "end_ns": 1308200267270700,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 8,
+              "enter_ns": 1308200204910300,
+              "end_ns": 1308200266020500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 16,
+              "enter_ns": 1308200204945900,
+              "end_ns": 1308200265095700,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 24,
+              "enter_ns": 1308200204878300,
+              "end_ns": 1308200264028800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        },
+        {
+          "stride": 8,
+          "private": true,
+          "elapsed_ns": 76815400,
+          "ns_per_update": 0.32006416666666665,
+          "wall_ns_per_thread_iteration": 1.2802566666666666,
+          "context_switches": null,
+          "context_switch_scope": "unavailable_on_windows",
+          "buffer_address": 2841217071872,
+          "alignment_bytes": 128,
+          "slot_addresses": [
+            2841217071872,
+            2841217071936,
+            2841217072000,
+            2841217072064
+          ],
+          "cache_line_indices": [
+            44394016748,
+            44394016749,
+            44394016750,
+            44394016751
+          ],
+          "expected_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "actual_counters": [
+            6287235371211915392,
+            5159452465845887616,
+            15487362707973088640,
+            7126471267181747840
+          ],
+          "parity_passed": true,
+          "worker_records": [
+            {
+              "tid": 0,
+              "slot": 0,
+              "enter_ns": 1308200860586700,
+              "end_ns": 1308200937328500,
+              "affinity": {
+                "pinned": true,
+                "cpu": 0,
+                "group": 0
+              }
+            },
+            {
+              "tid": 1,
+              "slot": 8,
+              "enter_ns": 1308200861094400,
+              "end_ns": 1308200922685400,
+              "affinity": {
+                "pinned": true,
+                "cpu": 2,
+                "group": 0
+              }
+            },
+            {
+              "tid": 2,
+              "slot": 16,
+              "enter_ns": 1308200860531100,
+              "end_ns": 1308200922491600,
+              "affinity": {
+                "pinned": true,
+                "cpu": 4,
+                "group": 0
+              }
+            },
+            {
+              "tid": 3,
+              "slot": 24,
+              "enter_ns": 1308200860644600,
+              "end_ns": 1308200919925800,
+              "affinity": {
+                "pinned": true,
+                "cpu": 6,
+                "group": 0
+              }
+            }
+          ],
+          "all_workers_overlap": true
+        }
+      ],
+      "median_elapsed_ns": 62407800,
+      "ns_per_update": 0.2600325,
+      "representative_run": {
+        "stride": 8,
+        "private": true,
+        "elapsed_ns": 62407800,
+        "ns_per_update": 0.2600325,
+        "wall_ns_per_thread_iteration": 1.04013,
+        "context_switches": null,
+        "context_switch_scope": "unavailable_on_windows",
+        "buffer_address": 2841217071872,
+        "alignment_bytes": 128,
+        "slot_addresses": [
+          2841217071872,
+          2841217071936,
+          2841217072000,
+          2841217072064
+        ],
+        "cache_line_indices": [
+          44394016748,
+          44394016749,
+          44394016750,
+          44394016751
+        ],
+        "expected_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "actual_counters": [
+          6287235371211915392,
+          5159452465845887616,
+          15487362707973088640,
+          7126471267181747840
+        ],
+        "parity_passed": true,
+        "worker_records": [
+          {
+            "tid": 0,
+            "slot": 0,
+            "enter_ns": 1308200205076600,
+            "end_ns": 1308200267270700,
+            "affinity": {
+              "pinned": true,
+              "cpu": 0,
+              "group": 0
+            }
+          },
+          {
+            "tid": 1,
+            "slot": 8,
+            "enter_ns": 1308200204910300,
+            "end_ns": 1308200266020500,
+            "affinity": {
+              "pinned": true,
+              "cpu": 2,
+              "group": 0
+            }
+          },
+          {
+            "tid": 2,
+            "slot": 16,
+            "enter_ns": 1308200204945900,
+            "end_ns": 1308200265095700,
+            "affinity": {
+              "pinned": true,
+              "cpu": 4,
+              "group": 0
+            }
+          },
+          {
+            "tid": 3,
+            "slot": 24,
+            "enter_ns": 1308200204878300,
+            "end_ns": 1308200264028800,
+            "affinity": {
+              "pinned": true,
+              "cpu": 6,
+              "group": 0
+            }
+          }
+        ],
+        "all_workers_overlap": true
+      }
+    }
+  }
+}

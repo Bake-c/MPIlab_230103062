@@ -1,0 +1,87 @@
+{
+  "github_username": "Bake-c",
+  "gpu_uuid": "GPU-e0406bc2-23c2-82ac-be4f-113c562e1518",
+  "cpu_signature": "x86_64::2",
+  "allowed_cpus": [
+    0,
+    1
+  ],
+  "cpu_cache_line_bytes": 64,
+  "instance_seed": 16144111153080467830,
+  "mpi_ranks": 4,
+  "cart_dims": [
+    2,
+    2
+  ],
+  "shared_slots": 64,
+  "iterations_per_rank": 40000000,
+  "shm_stride_ms": {
+    "1": 584.935216,
+    "8": 160.09231199999996,
+    "16": 244.872937
+  },
+  "shm_slowdown_stride1_over_stride8": 3.6537370763937753,
+  "shm_ratio_stride8_over_stride16": 0.6537770729641714,
+  "llvm_counts": {
+    "atomic_load_i64": 9,
+    "atomic_store_i64": 9
+  },
+  "llvm_audit_passed": true,
+  "steps": 300,
+  "dx": 0.001949317738791423,
+  "dy": 0.001949317738791423,
+  "kappa_max": 0.23999962497115201,
+  "dt": 3.166537987068644e-06,
+  "dt_max": 3.9581724838358046e-06,
+  "gpu_serialized_ms": 1004.5674519999999,
+  "gpu_overlapped_ms": 965.6363429999999,
+  "gpu_speedup": 1.040316532494055,
+  "ptx_counts": {
+    "st.shared.f64": 5,
+    "ld.shared.f64": 5,
+    "st.shared": 5,
+    "ld.shared": 5,
+    "bar.sync": 1
+  },
+  "ptx_audit_passed": true,
+  "max_diff": 0.0,
+  "energy_match": true,
+  "energy_trace": {
+    "serialized": [
+      {
+        "step": 0,
+        "energy": 0.09136435671539136
+      },
+      {
+        "step": 100,
+        "energy": 0.09134451914027236
+      },
+      {
+        "step": 200,
+        "energy": 0.09133138359464665
+      },
+      {
+        "step": 300,
+        "energy": 0.09131921914840578
+      }
+    ],
+    "overlapped": [
+      {
+        "step": 0,
+        "energy": 0.09136435671539136
+      },
+      {
+        "step": 100,
+        "energy": 0.09134451914027236
+      },
+      {
+        "step": 200,
+        "energy": 0.09133138359464665
+      },
+      {
+        "step": 300,
+        "energy": 0.09131921914840578
+      }
+    ]
+  }
+}
